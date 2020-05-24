@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/sky.css" id="theme" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="plugin/highlight/monokai.css"
+      id="highlight-theme"
+    />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Typescript</h1>
+        </section>
+        <section>
+          <h3>stability in Javascript</h3>
+          <img src="./images/jest.png" width="200" alt="" />
+          <img src="./images/eslint.png" width="200" alt="" />
+          <img src="./images/stylelint.png" width="200" alt="" />
+        </section>
+        <section>
+          <section>
+            <h3>What is Typescript?</h3>
+          </section>
+          <section>
+            <h3>Anders Hejlsberg</h3>
+            <div style="display: flex; justify-content: center;">
+              <img src="./images/Anders_Hejlsberg.jpg" alt="" />
+            </div>
+          </section>
+          <section>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <img
+                style="margin-right: 20px;"
+                src="./images/javascript.png"
+                alt=""
+              />
+              <img
+                style="margin-right: 20px;"
+                src="./images/arrow-right.png"
+                alt=""
+              />
+              <span>dynamically typed</span>
+            </div>
+          </section>
+          <section>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <img
+                style="margin-right: 20px;"
+                src="./images/typescript.png"
+                alt=""
+              />
+              <img
+                style="margin-right: 20px;"
+                src="./images/arrow-right.png"
+                alt=""
+              />
+              <span>statically typed</span>
+            </div>
+          </section>
+          <section>
+            <h3>Adventegers</h3>
+            <ul>
+              <li>
+                Simpler refactoring
+              </li>
+              <li>
+                Improves work of tips in the IDE
+              </li>
+              <li>
+                Doesn't compile code with errors
+              </li>
+              <li>etc...</li>
+            </ul>
+          </section>
+          <section>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <img
+                style="margin-right: 20px;"
+                src="./images/typescript.png"
+                alt=""
+              />
+              <img
+                style="margin-right: 20px;"
+                src="./images/arrow-right.png"
+                alt=""
+              />
+              <img src="./images/javascript.png" alt="" />
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Basic types</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                const text = 'hello world';
+              </code>
+            </pre>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-noescape>
+                const text: number = 'hello world';
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Boolean</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                const isDone: boolean = false;
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Number</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                const decimal: number = 6;
+                const hex: number = 0xf00d;
+                const binary: number = 0b1010;
+                const octal: number = 0o744;
+                const big: bigint = 100n;
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>String</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                const color: string = "blue";
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Null and Undefined</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                const u: undefined = undefined;
+                const n: null = null;
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Array</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                const list: number[] = [1, 2, 3];
+                const list: Array&lt;number&gt; = [1, 2, 3];
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Object</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                const user: object = {
+                  name: "brad", 
+                }
+              </code>
+            </pre>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-noescape>
+                type User = { name: string, surname: string age: number }
+                const user: User = {
+                	name: "brad", 
+                  surname: "pitt", 
+                  age: 56
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Never</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                function error(): never {
+                  throw new Error();
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Void</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                function warnUser(): void {
+                  console.log("This is my warning message");
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Any</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                let notSure: any = 4;
+                notSure = "maybe a string instead";
+                notSure = false;
+              </code>
+            </pre>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-noescape>
+                const list: any[] = [1, true, "free"];
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Type union</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                const unknown: string | number = "1";
+              </code>
+            </pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Functions</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                function add(x: number, y: number): number {
+                  return x + y;
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>function types</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                const myAdd: (x: number, y: number) => number = function(
+                  x: number,
+                  y: number
+                ): number {
+                  return x + y;
+                };
+              </code>
+            </pre>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-noescape>
+                type User = { 
+                  name: string,
+                  surname: string,
+                  age: number,
+                  getJobs: () => string[]
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>optional and standard parameters</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                function buildName(firstName: string, lastName: string) {
+                  return firstName + " " + lastName;
+                }
+                const result1 = buildName("Bob"); // error
+                const result2 = buildName("Bob", "Adams", "Sr."); // error
+                const result3 = buildName("Bob", "Adams"); // all right
+              </code>
+            </pre>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-noescape>
+                function buildName(firstName: string, age?: number) {
+                  return firstName + " " + lastName;
+                }
+                const result1 = buildName("Bob"); // works correctly 
+                const result3 = buildName("Bob", 30, "Frontend"); // error
+                const result4 = buildName("Bob", 30); // all right
+              </code>
+            </pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Classes</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                class Animal {
+                  name: string;
+                  constructor(theName: string) {
+                    this.name = theName;
+                  }
+                  move(distanceInMeters: number = 0) {
+                    console.log(`${this.name} moved ${distanceInMeters}m.`);
+                  }
+                }
+                const animal = new Animal("Fluffy");
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>access modifiers</h3>
+          </section>
+          <section>
+            <h3>Public</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                class Animal {
+                  public name: string;
+                  public constructor(theName: string) {
+                    this.name = theName;
+                  }
+                  public move(distanceInMeters: number) {
+                    console.log(`${this.name} moved ${distanceInMeters}m.`);
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Private</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                class Animal {
+                  private name: string;
+                  constructor(theName: string) {
+                    this.name = theName;
+                  }
+                }
+                new Animal("Cat").name; // error
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Protected</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                class Person {
+                  protected name: string;
+                  protected constructor(theName: string) {
+                    this.name = theName;
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>Abstract classes</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                abstract class Animal {
+                  abstract makeSound(): void;
+                  move(): void {
+                    console.log("roaming the earth...");
+                  }
+                }
+              </code>
+            </pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Interfaces</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                interface IUser {
+                  id: number;
+                  name: string;
+                }
+              </code>
+            </pre>
+            <pre class="fragment" data-fragment-index="2">
+              <code data-trim data-noescape>
+                let employee: IUser = { 
+                  id: 1, 
+                  name: "Tom"
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>class interfaces</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                interface IUser {
+                  id: number;
+                  name: string;
+                  getFullName(surname: string): string;
+                }
+                class User implements IUser{
+                  id: number;
+                  name: string;
+                  age: number;
+                  constructor(userId: number, userName: string, userAge: number) {
+                    this.id = userId;
+                    this.name = userName;
+                    this.age = userAge;
+                  }
+                  getFullName(surname: string): string {
+                    return this.name + " " + surname;
+                  }
+                } 
+                const tom = new User(1, "Tom", 23);
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>interface inheritance</h3>
+            <pre class="fragment" data-fragment-index="1">
+              <code data-trim data-noescape>
+                interface IMovable {
+                  speed: number;
+                  move(): void;
+                }
+                interface ICar extends IMovable {
+                  fill(): void;
+                }
+              </code>
+            </pre>
+          </section>
+        </section>
+        <section>
+          <h3>Thank you for the attention</h3>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
